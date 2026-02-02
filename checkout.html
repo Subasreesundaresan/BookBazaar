@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Order Confirmation</h2>
+
+    <p>Thank you for your order, {{ customer.name }}!</p>
+    <p>Email: {{ customer.email }}</p>
+    <p>Delivery Address: {{ customer.address }}</p>
+    <p>Payment Method: {{ customer.payment_method }}</p>
+
+    <h3>Books Ordered:</h3>
+    {% if cart %}
+        {% for item in cart %}
+          <p>{{ item.title }} - ₹{{ item.price }} × {{ item.quantity or 1 }} = ₹{{ item.price * (item.quantity or 1) }}</p>
+        {% endfor %}
+        <p><strong>Total: ₹{{ total }}</strong></p>
+    {% else %}
+        <p>No items in cart.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BookBazar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(to right, #ffe0b2, #ffccbc);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        h1 {
+            font-size: 48px;
+            color: #6d4c41;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 20px;
+            color: #4e342e;
+            margin-bottom: 40px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .button-group a {
+            text-decoration: none;
+            background-color: #ff7043;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .button-group a:hover {
+            background-color: #f4511e;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to BookBazar</h1>
+        <p>Your one-stop shop for books.</p>
+        <div class="button-group">
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+            <a href="{{ url_for('books') }}">Browse Books</a>
+            <a href="{{ url_for('cart') }}">View Cart</a>
+        </div>
+    </div>
+</body>
+</html>

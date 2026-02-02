@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Your Cart</h2>
+    {% for item in cart %}
+    <div class="cart-item">
+        <h3>{{ item.title }}</h3>
+        <p>Quantity: {{ item.quantity }}</p>
+        <p>Price: ₹{{ item.price }}</p>
+        <a href="{{ url_for('update_cart', book_id=item.id, action='increase') }}">+</a>
+        <a href="{{ url_for('update_cart', book_id=item.id, action='decrease') }}">-</a>
+        <a href="{{ url_for('update_cart', book_id=item.id, action='remove') }}">Remove</a>
+    </div>
+    {% endfor %}
+    <a href="{{ url_for('checkout') }}">Proceed to Checkout</a>
+</body>
+</html>
