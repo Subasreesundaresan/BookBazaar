@@ -22,10 +22,13 @@
         <h3>{{ book.title }}</h3>
         <p>Author: {{ book.author }}</p>
         <p>Price: ₹{{ book.price }}</p>
-        <a href="{{ url_for('update_cart', book_id=book.book_id, action='add') }}">Add to Cart</a>
+        <a href="{{ url_for('update_cart', book_id=book.id, action='add') }}">Add to Cart</a>
       </div>
     {% endfor %}
 </body>
 </html>
+
+
+
 
 
